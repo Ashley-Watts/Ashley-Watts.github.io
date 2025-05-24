@@ -244,6 +244,7 @@
 }
 
 .projects-container {
+  background: rgba(255, 255, 255, 0.03);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
@@ -254,7 +255,6 @@
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   border-radius: 16px;
   overflow: hidden;
@@ -266,7 +266,6 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 12px 30px rgba(255, 75, 43, 0.2);
 }
 
@@ -293,17 +292,14 @@
 }
 
 .project-desc {
-  font-size: 0.95rem;
+  padding: 10px;
+  border-radius: 8px;
   color: #ccc;
   line-height: 1.6;
-  flex-grow: 1;
 }
 
-.project-tags {
-  margin-top: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.project-tag {
+  background-color: rgba(255, 255, 255, 0.1); /* slightly higher contrast */
 }
 
 .project-tag {
