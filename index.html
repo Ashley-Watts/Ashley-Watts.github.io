@@ -177,22 +177,306 @@
     </div>
   </section>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashley Watts | Fullstack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #ff4b2b;
+      --secondary-bg: #1e1e1e;
+      --card-bg: #2a2a2a;
+      --icon-hover: #ff6e40;
+      --modal-bg: rgba(0, 0, 0, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Intro section omitted for brevity (same as before) */
+
+    /* Projects Section */
+    #projects {
+      background-color: var(--secondary-bg);
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #projects h3 {
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 40px;
+    }
+
+    .projects-container {
+      background-color: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background-color: #383838;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(255, 75, 43, 0.4);
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    .project-info {
+      padding: 15px 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--accent-color);
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: #ccc;
+      flex-grow: 1;
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--modal-bg);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      position: relative;
+      color: var(--text-color);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-content h4 {
+      margin-bottom: 15px;
+      color: var(--accent-color);
+      font-size: 2rem;
+    }
+
+    .modal-content p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    .modal-content a {
+      color: var(--icon-hover);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--icon-hover);
+      transition: all 0.3s ease;
+    }
+
+    .modal-content a:hover {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #bbb;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: var(--icon-hover);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro section here (omitted for brevity, same as before) -->
+
   <section id="projects">
     <h3>Projects</h3>
-    <div class="project-list">
-      <div class="project-item">
-        <h4>Project One</h4>
-        <p>A brief description of Project One. Explain what technologies you used and what problem it solves.</p>
+    <div class="projects-container">
+
+      <!-- Example project cards -->
+      <div class="project-card" data-project="1" tabindex="0" role="button" aria-pressed="false">
+        <img src="https://via.placeholder.com/400x140?text=Project+1" alt="Screenshot of Project One" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">Project One</div>
+          <div class="project-desc">A responsive web app built with React and Node.js to manage tasks efficiently.</div>
+        </div>
       </div>
-      <div class="project-item">
-        <h4>Project Two</h4>
-        <p>Details about Project Two, such as its purpose, tech stack, and any standout features or challenges overcome.</p>
+
+      <div class="project-card" data-project="2" tabindex="0" role="button" aria-pressed="false">
+        <img src="https://via.placeholder.com/400x140?text=Project+2" alt="Screenshot of Project Two" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">Project Two</div>
+          <div class="project-desc">An e-commerce platform with secure payment integration and user-friendly design.</div>
+        </div>
       </div>
-      <div class="project-item">
-        <h4>Project Three</h4>
-        <p>Describe the third project, focusing on why it's unique or interesting. Include links if it's live or open source.</p>
+
+      <div class="project-card" data-project="3" tabindex="0" role="button" aria-pressed="false">
+        <img src="https://via.placeholder.com/400x140?text=Project+3" alt="Screenshot of Project Three" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">Project Three</div>
+          <div class="project-desc">Mobile-friendly portfolio showcasing creative works with smooth animations.</div>
+        </div>
       </div>
+
+      <!-- Add more projects as needed -->
     </div>
   </section>
+
+  <!-- Modal Structure -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal" aria-label="Close modal">&times;</span>
+      <h4 id="modalTitle">Project Title</h4>
+      <p id="modalDesc">Detailed project description goes here.</p>
+      <a href="#" target="_blank" id="modalLink">View Project</a>
+    </div>
+  </div>
+
+  <script>
+    // Project data (can also be loaded from API or JSON)
+    const projects = {
+      1: {
+        title: "Project One",
+        description: "Project One is a responsive web application built with React and Node.js that helps users manage their tasks efficiently. It features real-time updates, intuitive UI, and robust backend support.",
+        link: "https://example.com/project-one"
+      },
+      2: {
+        title: "Project Two",
+        description: "Project Two is an e-commerce platform offering seamless shopping experience with secure payment integration, detailed product listings, and mobile-friendly design.",
+        link: "https://example.com/project-two"
+      },
+      3: {
+        title: "Project Three",
+        description: "Project Three is a mobile-friendly portfolio website showcasing creative works with smooth animations and a clean design focused on user experience.",
+        link: "https://example.com/project-three"
+      }
+      // Add more projects here
+    };
+
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalLink = document.getElementById('modalLink');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-project');
+        openModal(id);
+      });
+      card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const id = card.getAttribute('data-project');
+          openModal(id);
+        }
+      });
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      closeModal();
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    function openModal(id) {
+      const project = projects[id];
+      if (!project) return;
+
+      modalTitle.textContent = project.title;
+      modalDesc.textContent = project.description;
+      modalLink.href = project.link;
+      modalLink.textContent = "View Project";
+      modal.classList.add('active');
+
+      // Focus close button for accessibility
+      closeModalBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
+
