@@ -46,18 +46,20 @@
     }
 
     .intro::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(270deg, #1a1a1a, #0e0e0e, #1a1a1a, #0e0e0e);
-      background-size: 800% 800%;
-      animation: gradientMove 30s ease infinite;
-      z-index: -1;
-      filter: brightness(0.7) contrast(1.1);
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat,
+    linear-gradient(135deg, #0e0e0e, #1a1a1a);
+  background-blend-mode: overlay;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(2px);
+}
 
     @keyframes gradientMove {
       0% {
@@ -215,73 +217,89 @@
 
     /* Projects Section */
     #projects {
-      background-color: var(--secondary-bg);
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  background: radial-gradient(circle at top, #1e1e1e 0%, #121212 100%);
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    #projects h3 {
-      font-size: 2.5rem;
-      color: var(--text-color);
-      margin-bottom: 40px;
-    }
+#projects h3 {
+  font-size: 2.7rem;
+  color: var(--accent-color);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
 
-    .projects-container {
-      background-color: var(--card-bg);
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 900px;
-      width: 100%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-    }
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 10px;
+}
 
-    .project-card {
-      background-color: #383838;
-      border-radius: 10px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
+.project-card {
+  background: linear-gradient(145deg, #2b2b2b, #1a1a1a);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(255, 75, 43, 0.4);
-    }
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(255, 75, 43, 0.25);
+}
 
-    .project-thumb {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-bottom: 2px solid var(--accent-color);
-    }
+.project-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--accent-color);
+}
 
-    .project-info {
-      padding: 15px 18px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
+.project-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-    .project-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--accent-color);
-    }
+.project-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
 
-    .project-desc {
-      font-size: 0.95rem;
-      color: #ccc;
-      flex-grow: 1;
-    }
+.project-desc {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.project-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
 
     /* Modal Styles */
     .modal {
@@ -371,12 +389,19 @@
 
       <!-- Example project cards -->
       <div class="project-card" data-project="1" tabindex="0" role="button" aria-pressed="false">
-        <img src="src/Python3_Crypt_SC" alt="Screenshot of Project One" class="project-thumb" />
-        <div class="project-info">
-          <div class="project-name">Python Cryptography</div>
-          <div class="project-desc">Project One tags</div>
-        </div>
-      </div>
+  <img src="src/Python3_Crypt_SC" alt="Screenshot of Python Cryptography" class="project-thumb" />
+  <div class="project-info">
+    <div class="project-name">Python Cryptography</div>
+    <div class="project-desc">
+      A Python3 tool using seeded randomisation to encrypt and decrypt text data.
+    </div>
+    <div class="project-tags">
+      <span class="project-tag">Python</span>
+      <span class="project-tag">Security</span>
+      <span class="project-tag">CLI</span>
+    </div>
+  </div>
+</div>
 
       <div class="project-card" data-project="2" tabindex="0" role="button" aria-pressed="false">
         <img src="src/Example_image.svg.png" alt="Screenshot of Project Two" class="project-thumb" />
