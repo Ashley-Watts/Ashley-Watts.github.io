@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ashley Watts | Fullstack Developer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-MTl7N8lG9jD7eFEl+0I6TDzShZQ2+vBhgURujB+kS03DBT5MwKrxVjPPu3Ho3WqFEnVZFkf1y5zdbQqTR4P1XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg-color: #121212;
@@ -31,27 +31,70 @@
       color: var(--text-color);
     }
 
+    /* Animated background for intro */
     .intro {
-      height: 100vh;
+      position: relative;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      background: radial-gradient(circle at top center, #1a1a1a, #0e0e0e);
+      padding: 40px 20px;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .intro::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(270deg, #1a1a1a, #0e0e0e, #1a1a1a, #0e0e0e);
+      background-size: 800% 800%;
+      animation: gradientMove 30s ease infinite;
+      z-index: -1;
+      filter: brightness(0.7) contrast(1.1);
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     h1 {
       font-size: 3.5rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      z-index: 1;
+      position: relative;
     }
 
     h2 {
       font-size: 1.5rem;
       color: #aaa;
       margin-bottom: 1rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    .about {
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.6;
+      z-index: 1;
+      position: relative;
     }
 
     .social-icons {
@@ -59,6 +102,8 @@
       gap: 20px;
       justify-content: center;
       margin-top: 10px;
+      z-index: 1;
+      position: relative;
     }
 
     .social-icons a {
@@ -113,11 +158,20 @@
   <section class="intro">
     <h1>Ashley Watts</h1>
     <h2>Fullstack Developer</h2>
+
+    <div class="about">
+      <p>
+        I’m a passionate fullstack developer who thrives on turning ideas into interactive digital experiences. 
+        With a love for clean code and sleek UI/UX design, I specialize in building scalable web applications 
+        using modern frameworks. Whether it's front-end flair or back-end logic, I bridge the gap between design and function.
+      </p>
+    </div>
+
     <div class="social-icons">
-      <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/ashley-watts-363590312/" target="_blank" aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://github.com/YOUR-GITHUB" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/Ashley-Watts" target="_blank" aria-label="GitHub">
         <i class="fab fa-github"></i>
       </a>
     </div>
