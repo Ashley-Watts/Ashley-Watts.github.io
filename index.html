@@ -6,6 +6,15 @@
   <title>Ashley Watts | Fullstack Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-MTl7N8lG9jD7eFEl+0I6TDzShZQ2+vBhgURujB+kS03DBT5MwKrxVjPPu3Ho3WqFEnVZFkf1y5zdbQqTR4P1XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #ff4b2b;
+      --secondary-bg: #1e1e1e;
+      --card-bg: #2a2a2a;
+      --icon-hover: #ff6e40;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -18,8 +27,8 @@
     }
 
     body {
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: white;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     .intro {
@@ -30,39 +39,47 @@
       justify-content: center;
       text-align: center;
       padding: 20px;
+      background: radial-gradient(circle at top center, #1a1a1a, #0e0e0e);
     }
 
     h1 {
       font-size: 3.5rem;
+      font-weight: bold;
       margin-bottom: 0.5rem;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #ccc;
+      font-size: 1.5rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 10px;
     }
 
     .social-icons a {
-      color: white;
-      margin: 0 10px;
+      color: var(--text-color);
       font-size: 1.8rem;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     .social-icons a:hover {
-      color: #ff4b2b;
+      color: var(--icon-hover);
     }
 
     #projects {
+      background-color: var(--secondary-bg);
       padding: 60px 20px;
-      background-color: #f4f4f4;
-      color: #333;
     }
 
     #projects h3 {
       text-align: center;
       font-size: 2.5rem;
+      color: var(--text-color);
       margin-bottom: 40px;
     }
 
@@ -75,18 +92,20 @@
     }
 
     .project-item {
-      background-color: white;
+      background-color: var(--card-bg);
       border-radius: 8px;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .project-item h4 {
       margin-bottom: 10px;
+      color: var(--accent-color);
     }
 
     .project-item p {
-      color: #555;
+      color: #ccc;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -109,15 +128,15 @@
     <div class="project-list">
       <div class="project-item">
         <h4>Project One</h4>
-        <p>Description of your first project. What it does, what stack it uses, and why it's awesome.</p>
+        <p>A brief description of Project One. Explain what technologies you used and what problem it solves.</p>
       </div>
       <div class="project-item">
         <h4>Project Two</h4>
-        <p>Description of your second project. Highlight any achievements or challenges solved.</p>
+        <p>Details about Project Two, such as its purpose, tech stack, and any standout features or challenges overcome.</p>
       </div>
       <div class="project-item">
         <h4>Project Three</h4>
-        <p>Description of your third project. Mention if it's open source or deployed somewhere.</p>
+        <p>Describe the third project, focusing on why it's unique or interesting. Include links if it's live or open source.</p>
       </div>
     </div>
   </section>
