@@ -216,76 +216,100 @@
     /* Intro section omitted for brevity (same as before) */
 
     /* Projects Section */
-    #projects {
-  background: radial-gradient(circle at top, #1e1e1e 0%, #121212 100%);
-  padding: 80px 20px;
+    /* Projects Section */
+#projects {
+  position: relative;
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0.95), rgba(30, 30, 30, 1));
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
-#projects h3 {
-  font-size: 2.7rem;
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+
+.section-overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
   color: var(--accent-color);
   margin-bottom: 50px;
+  font-weight: 600;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  width: 100%;
-  max-width: 1000px;
   padding: 0 10px;
 }
 
 .project-card {
-  background: linear-gradient(145deg, #2b2b2b, #1a1a1a);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 28px rgba(255, 75, 43, 0.25);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(255, 75, 43, 0.2);
 }
 
 .project-thumb {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .project-info {
   padding: 20px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .project-name {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--accent-color);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .project-desc {
   font-size: 0.95rem;
   color: #ccc;
-  line-height: 1.5;
+  line-height: 1.6;
   flex-grow: 1;
 }
 
 .project-tags {
-  margin-top: 12px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -295,7 +319,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   color: #bbb;
   font-size: 0.75rem;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
   letter-spacing: 0.5px;
 }
@@ -384,54 +408,29 @@
   <!-- Intro section here (omitted for brevity, same as before) -->
 
   <section id="projects">
-    <h3>Projects</h3>
+  <div class="section-overlay">
+    <h3 class="section-title">My Projects</h3>
     <div class="projects-container">
-
-      <!-- Example project cards -->
+      <!-- Project Cards: repeat as needed -->
       <div class="project-card" data-project="1" tabindex="0" role="button" aria-pressed="false">
-  <img src="src/Python3_Crypt_SC" alt="Screenshot of Python Cryptography" class="project-thumb" />
-  <div class="project-info">
-    <div class="project-name">Python Cryptography</div>
-    <div class="project-desc">
-      A Python3 tool using seeded randomisation to encrypt and decrypt text data.
-    </div>
-    <div class="project-tags">
-      <span class="project-tag">Python</span>
-      <span class="project-tag">Security</span>
-      <span class="project-tag">CLI</span>
+        <img src="src/Python3_Crypt_SC" alt="Python Cryptography Screenshot" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">Python Cryptography</div>
+          <div class="project-desc">
+            A Python3 tool using seeded randomisation to encrypt and decrypt text data.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Security</span>
+            <span class="project-tag">CLI</span>
+          </div>
+        </div>
+      </div>
+      <!-- More project cards... -->
     </div>
   </div>
-</div>
+</section>
 
-      <div class="project-card" data-project="2" tabindex="0" role="button" aria-pressed="false">
-  <img src="src/Example_image.svg.png" alt="Screenshot of Project Two" class="project-thumb" />
-  <div class="project-info">
-    <div class="project-name">Project Two</div>
-    <div class="project-desc">
-      Project Two Description
-    </div>
-    <div class="project-tags">
-      <span class="project-tag">TAG</span>
-      <span class="project-tag">TAG</span>
-      <span class="project-tag">TAG</span>
-    </div>
-  </div>
-</div>
-
-      <div class="project-card" data-project="3" tabindex="0" role="button" aria-pressed="false">
-  <img src="src/Example_image.svg.png" alt="Screenshot of Project Three" class="project-thumb" />
-  <div class="project-info">
-    <div class="project-name">Project Three</div>
-    <div class="project-desc">
-      Project Three Description
-    </div>
-    <div class="project-tags">
-      <span class="project-tag">TAG</span>
-      <span class="project-tag">TAG</span>
-      <span class="project-tag">TAG</span>
-    </div>
-  </div>
-</div>
 
       
 
