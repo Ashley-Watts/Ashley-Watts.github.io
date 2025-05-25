@@ -54,6 +54,58 @@
   height: 100%;
 }
 
+    #languages {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.languages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-logo {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.language-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease;
+}
+
+.language-logo:hover img {
+  filter: grayscale(80%) brightness(60%);
+}
+
+.language-tooltip {
+  position: fixed;
+  background: rgba(30, 30, 30, 0.95);
+  color: #eee;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  white-space: nowrap;
+}
+
+    
+
     @keyframes gradientMove {
       0% {
         background-position: 0% 50%;
@@ -360,6 +412,40 @@
 <body>
   <!-- Intro section here (omitted for brevity, same as before) -->
 
+  
+  
+  <!-- Languages Section -->
+<section id="languages">
+  <div class="section-overlay">
+    <h3 class="section-title">Languages I Use</h3>
+    <div class="languages-grid">
+      <div class="language-logo" data-lang="Python" data-experience="5 years">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+      </div>
+      <div class="language-logo" data-lang="JavaScript" data-experience="4 years">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+      </div>
+      <div class="language-logo" data-lang="C++" data-experience="3 years">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+      </div>
+      <div class="language-logo" data-lang="HTML5" data-experience="5 years">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+      </div>
+      <div class="language-logo" data-lang="CSS3" data-experience="5 years">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+      </div>
+      <!-- Add more logos as needed -->
+    </div>
+  </div>
+
+  <!-- Hover Info Box -->
+  <div class="language-tooltip" id="languageTooltip"></div>
+</section>
+
+
+  
+
+  
   <section id="projects">
   <div class="section-overlay">
     <h3 class="section-title">My Projects</h3>
@@ -502,5 +588,30 @@
       modal.classList.remove('active');
     }
   </script>
+
+  <script>
+  const tooltip = document.getElementById('languageTooltip');
+
+  document.querySelectorAll('.language-logo').forEach(logo => {
+    logo.addEventListener('mouseenter', (e) => {
+      const lang = logo.getAttribute('data-lang');
+      const experience = logo.getAttribute('data-experience');
+      tooltip.innerText = `${lang} - ${experience}`;
+      tooltip.style.opacity = 1;
+    });
+
+    logo.addEventListener('mousemove', (e) => {
+      tooltip.style.top = `${e.clientY - 20}px`;
+      tooltip.style.left = `${e.clientX}px`;
+    });
+
+    logo.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = 0;
+    });
+  });
+</script>
+
+  
+  
 </body>
 </html>
