@@ -5,7 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ashley Watts | Fullstack Developer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles/style.css" />
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #ff4b2b;
+      --secondary-bg: #1e1e1e;
+      --card-bg: #2a2a2a;
+      --icon-hover: #ff6e40;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+  background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
+  background-attachment: fixed;
+  }
+
+    /* Animated background for intro */
+    .intro {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .intro::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    .about {
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.6;
+      z-index: 1;
+      position: relative;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 10px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .social-icons a {
+      color: var(--text-color);
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--icon-hover);
+    }
+
+    #projects {
+  position: relative;
+  padding: 80px 20px;
+  background: transparent;
+  z-index: 1;
+}
+
+    #projects h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--text-color);
+      margin-bottom: 40px;
+    }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .project-item {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-item h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .project-item p {
+      color: #ccc;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,82 +157,385 @@
     <h1>Ashley Watts</h1>
     <h2>Fullstack Developer</h2>
     <h4>Chepstow, UK</h4>
+
     <div class="about">
       <p>
         I find joy in problem solving and overcoming chalenges, the harder the challenge the more i need to overcome it.
-        I do a lot of work with software as well as hardware, and do enjoy creating, managing, exploiting, then securing my own servers.
+          I do a lot of work with software as well as hardware, and do enjoy creating, managing, exploiting, then securing my own servers.
       </p>
     </div>
+
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/ashley-watts-363590312/" target="_blank" aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/Ashley-Watts" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
+@@ -174,295 +29,57 @@
     </div>
   </section>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashley Watts | Fullstack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --accent-color: #33ff00;
+      --secondary-bg: #1e1e1e;
+      --card-bg: #2a2a2a;
+      --icon-hover: #ff6e40;
+      --modal-bg: rgba(0, 0, 0, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Intro section omitted for brevity (same as before) */
+
+    /* Projects Section */
+#projects {
+  position: relative;
+  padding: 80px 20px;
+  background: transparent;
+  z-index: 1;
+}
+
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+
+.section-overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: var(--accent-color);;
+  margin-bottom: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px; /* adjust as you want */
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+
+.project-card {
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding-top: 10px; /* Add spacing at top */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  box-shadow: 0 12px 30px rgba(255, 75, 43, 0.2);
+}
+
+.project-thumb {
+  padding-top: 20px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+}
+
+.project-desc {
+  padding: 10px;
+  border-radius: 8px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.project-tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--modal-bg);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  color: var(--text-color);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-content h4 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.modal-content a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--icon-hover);
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.modal-content a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      color: #bbb;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: var(--icon-hover);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro section here (omitted for brevity, same as before) -->
 
   <section id="projects">
-    <div class="section-overlay">
-      <h3 class="section-title">My Projects</h3>
-      <div class="projects-container">
-        <div class="project-card" data-project="1" tabindex="0" role="button" aria-pressed="false">
-          <img src="assets/images/Python3_Crypt_SC" alt="Python Cryptography Screenshot" class="project-thumb" />
-          <div class="project-info">
-            <div class="project-name">Python Cryptography</div>
-            <div class="project-desc">
-              A Python3 tool using seeded randomisation to encrypt and decrypt text data.
-            </div>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Security</span>
-              <span class="project-tag">CLI</span>
-            </div>
+  <div class="section-overlay">
+    <h3 class="section-title">My Projects</h3>
+    <div class="projects-container">
+      <!-- Project Cards: repeat as needed -->
+      <div class="project-card" data-project="1" tabindex="0" role="button" aria-pressed="false">
+        <img src="src/Python3_Crypt_SC" alt="Python Cryptography Screenshot" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">Python Cryptography</div>
+          <div class="project-desc">
+            A Python3 tool using seeded randomisation to encrypt and decrypt text data.
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Security</span>
+            <span class="project-tag">CLI</span>
           </div>
         </div>
-
-        <!-- More project cards -->
-        <div class="project-card" data-project="2" tabindex="0" role="button" aria-pressed="false">
-          <img src="assets/images/Python3_Crypt_SC" alt="example2" class="project-thumb" />
-          <div class="project-info">
-            <div class="project-name">example2</div>
-            <div class="project-desc">example2</div>
-            <div class="project-tags">
-              <span class="project-tag">example2</span>
-              <span class="project-tag">example2</span>
-              <span class="project-tag">example2</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-project="3" tabindex="0" role="button" aria-pressed="false">
-          <img src="assets/images/Python3_Crypt_SC" alt="example3" class="project-thumb" />
-          <div class="project-info">
-            <div class="project-name">example3</div>
-            <div class="project-desc">example3</div>
-            <div class="project-tags">
-              <span class="project-tag">example3</span>
-              <span class="project-tag">example3</span>
-              <span class="project-tag">example3</span>
-            </div>
-          </div>
-        </div>
-
       </div>
+      <!-- More project cards... -->
+      <div class="project-card" data-project="2" tabindex="0" role="button" aria-pressed="false">
+        <img src="src/Python3_Crypt_SC" alt="example2" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">example2</div>
+          <div class="project-desc">
+            example2
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">example2</span>
+            <span class="project-tag">example2</span>
+            <span class="project-tag">example2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-project="3" tabindex="0" role="button" aria-pressed="false">
+        <img src="src/Python3_Crypt_SC" alt="example3" class="project-thumb" />
+        <div class="project-info">
+          <div class="project-name">example3</div>
+          <div class="project-desc">
+            example3
+          </div>
+          <div class="project-tags">
+            <span class="project-tag">example3</span>
+            <span class="project-tag">example3</span>
+            <span class="project-tag">example3</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+      
+
+      
+
+      <!-- Add more projects as needed -->
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- Modal Structure -->
   <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
       <span class="close-btn" id="closeModal" aria-label="Close modal">&times;</span>
-      <h4 id="modalTitle">Project Title</h4>
-      <p id="modalDesc">Detailed project description goes here.</p>
-      <a href="#" target="_blank" id="modalLink">View Project</a>
+@@ -472,75 +89,6 @@
     </div>
   </div>
 
-  <script src="scripts/main.js"></script>
+  <script>
+    // Project data (can also be loaded from API or JSON)
+    const projects = {
+      1: {
+        title: "Python Cryptography",
+        description: "Python3 Cryptography machine, It uses seeded randomisation to encrypt and decrypt.",
+        link: "https://github.com/Ashley-Watts/Python_Based_Encryption"
+      },
+      2: {
+        title: "Project Two",
+        description: "Project Two Description",
+        link: "https://example.com/project-two"
+      },
+      3: {
+        title: "Project Three",
+        description: "Project Three Description",
+        link: "https://example.com/project-three"
+      }
+      // Add more projects here
+    };
+
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalLink = document.getElementById('modalLink');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-project');
+        openModal(id);
+      });
+      card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const id = card.getAttribute('data-project');
+          openModal(id);
+        }
+      });
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      closeModal();
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    function openModal(id) {
+      const project = projects[id];
+      if (!project) return;
+
+      modalTitle.textContent = project.title;
+      modalDesc.textContent = project.description;
+      modalLink.href = project.link;
+      modalLink.textContent = "View Project";
+      modal.classList.add('active');
+
+      // Focus close button for accessibility
+      closeModalBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
